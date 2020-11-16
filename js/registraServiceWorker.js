@@ -8,7 +8,6 @@ async function registraServiceWorker() {
   muestraError(e);
   }
 }
-* @param {Error} e descripción del error. */
 function muestraError(e) {
   console.log(e);
   alert(e.message);
