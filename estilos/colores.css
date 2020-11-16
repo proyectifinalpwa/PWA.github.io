@@ -1,0 +1,143 @@
+:root{
+    --color-primario: black;
+    --color-primario-fondo: #ee98fb;
+    --color-contenido: black;
+    --color-contenido-fondo: white;
+    --color-control-sin-foco: #560027;
+    --color-control-con-foco: #8e0038;
+    --color-control-error: #9b0000;
+    --color-control-fondo: #ce93d8;
+    --color-active: #880e4f;
+    --font-family:'Architects Daughter', cursive,'Syne Mono', monospace;
+    color: var(--color-contenido);
+    font-family: var(--font-family);
+  }
+  body{margin: 0;}
+  header{
+    color: var(--color-primario);
+    background-color: var(--color-primario-fondo);
+    position: sticky;
+    top: 0;
+    z-index: 1;}
+  .barra{
+    display: flex;
+    padding: 1rem;
+    position: relative;
+  }
+  .barra h1 {
+    margin: 0 auto 0 0;
+    padding: 0;
+    font-size: 1.25rem;
+  }
+  .barra .accion{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+  .barra button{
+    border: none;
+    padding: 0;
+    margin: 0 0 0 1.5rem;
+    background-color: transparent;
+    outline: none;
+  }
+  .barra button:active {
+    background-color: var(--color-active);
+  }
+  .cont{
+    padding: 0 1rem;
+    font-family: var(--font-family);
+    margin-bottom: 4.75rem;
+  }
+  campo-dinamico{
+    display: block;
+    position: relative;
+    color: var(--color-control-sin-foco);
+    background-color: var(--color-control-fondo);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    margin: 1erm 0;
+    padding: 1.25rem 0 0 0;
+  }
+  campo-dinamico label{
+    position: absolute;
+    top: 1.75rem;
+    left: 1rem;
+    font-size: 1erm;
+    color: var(--color-control-sin-foco);
+    transition: 0.7s ease-in; 
+  }
+  campo-dinamico .control_sin_foco+label,
+  campo-dinamico :focus+label{
+    top: 0.5rem;
+    font-size: 0.75rem;
+  }
+  campo-dinamico input{
+    box-sizing: border-box;
+    background-color: transparent !important;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    font-size: 1rem;
+    font-family: var(--font-family);
+    border: none;
+    border-bottom:  2px solid var(--color-control-sin-foco);
+    resize: none;
+    outline: none;
+    width: 100%;
+    transition: 0.7s ease-in;
+  }
+  campo-dinamico small{
+    display: block;
+    height: 1em;
+    font-size: 0.75rem;
+    padding-left: 1rem;
+    background-color: var(--color-contenido-fondo);
+    transition: 0.7s ease-in;
+  }
+  campo-dinamico :focus+label{
+    color: var(--color-control-con-foco);
+  }
+  campo-dinamico input:focus{
+    border-bottom-color: var(--color-control-con-foco);
+  }
+  campo-dinamico input:invalid{
+    border-bottom-color: var(--color-control-error);
+  }
+  campo-dinamico :invalid+label,
+  campo-dinamico :invalid~small{
+    color: var(--color-control-error);
+  }
+  nav{
+    margin: 0 auto 0 0;
+    padding: 0;
+    font-size: 1.25rem;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  nav ul{
+    color: var(--color-primario);
+    background-color: var(--color-primario-fondo);
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    align-items: stretch;
+    margin: 0;
+    padding: 0;
+  }
+  nav ul li a{
+    display: block;
+    color: var(--color-letra-primario);
+    font-size: 0.75rem;
+    text-decoration: none;
+    padding: 0.5rem 0.75rem 0.75rem 0.75rem;
+    text-align: center;
+  }
+  nav li a span.material-icons{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  nav ul li a:active{
+    background-color: var(--color-active);
+  }
