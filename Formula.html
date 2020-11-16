@@ -5,13 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Velocidad</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" 
+    rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" 
+    rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-    <style>
-    </style>
+    rel="stylesheet">
+
+    <script src="js/registraServiceWorker.js"></script>
+    <link rel="stylesheet" sizes="32x32" href="favicon.ico">
+    <meta name="theme-color" content="#81d4f4">
+    <link rel="stylesheet" href="manifest.json">
+    <meta name="apple-mobile-web-app-title" content="proyectofinalpwa">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="stylesheet" href="img/icono2048.png">
+    <link rel="stylesheet" sizes="256x255" href="img/icono256.png">
+    <link rel="stylesheet" sizes="1024x1022" href="img/icono1024.png">
+    <link rel="stylesheet" sizes="2048x2048" href="img/icono2048.png">
+
+    <script type="module" src="cmp/mi-footer.js"></script>
+    <link rel="stylesheet" href="estilos/colores.css">
     <script>
       class campoDinamico extends HTMLElement{
         connectedCallback(){
@@ -76,7 +91,7 @@
       <small>Requerido</small>
     </campo-dinamico>
     <p><output id=outResultado></output></p>
-    <center><footer><p></p></footer></center>
+    <center><footer><p><mi-footer></mi-footer></p></footer></center>
   </div>
 </form>
 <form action="barra-inferior">
