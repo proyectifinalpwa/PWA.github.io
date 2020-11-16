@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velocidad</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <style>
+    </style>
+    <script>
+      class campoDinamico extends HTMLElement{
+        connectedCallback(){
+          this.ganaFoco = this.ganaFoco.bind(this);
+          this.pierdeFoco = this.pierdeFoco.bind(this);
+          this.addEventListener("focus", this.ganaFoco, true);
+          this.addEventListener("focusout", this.pierdeFoco,true);
+        }
+        get control(){
+          return this.querySelector("input, label");
+        }
+        ganaFoco(){
+          this.control.classList.remove("control_sin_foco");
+        }
+        pierdeFoco(){
+          const control = this.control;
+          if(control.value.length === 0){
+            control.classList.remove("control_sin_foco");
+          }else{
+            control.classList.add("control_sin_foco");
+          }
+        }
+      }
+      customElements.define("campo-dinamico", campoDinamico)
+    </script>
+</head>
+<body>
+  <form action=javascript:calculaformula1();>
+    <header>
+      <div class="barra">
+        <h1>Velocidad</h1>
+        <span class="accion">
+          <button>
+            <span class="material-icons">done_outline</span>
+          </button>
+        </span>
+      </div>
+    </header>
+  <div class="cont">
+    <p>
+      <center><h2>Sacar el Valor de la Velocidad</h2></center>
+      <center>
+      <table border="0">
+        <tbody>
+          <tr>
+            <td>V: Velocidad</td>
+            <td>D: Distancia</td>
+            <td>t: Tiempo</td>
+          </tr>
+        </tbody>
+      </table></center>
+      <center><h3>V = D/t</h3></center>
+    </p>
+    <campo-dinamico>
+      <input id=inD type=number required min="0.1" max="100" step="0.1">
+      <label for="dist">D:</label>
+      <small>Requerido</small>
+    </campo-dinamico>
+    <br><campo-dinamico>
+      <input id=inT type=number required min="0.1" max="100" step="0.1">
+      <label for="tiem">t:</label>
+      <small>Requerido</small>
+    </campo-dinamico>
+    <p><output id=outResultado></output></p>
+    <center><footer><p></p></footer></center>
+  </div>
+</form>
+<form action="barra-inferior">
+  <nav>
+    <ul>
+      <li>
+        <a href="#">
+          <span class="material-icons">home</span>inicio
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="material-icons">assignment</span>Formulas
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="material-icons">settings</span>Ajustes           
+        </a>
+      </li>
+    </ul>
+  </nav>
+</form>
+  <script>
+    function calculaformula1() {
+      const t = inT.valueAsNumber;
+      const D = inD.valueAsNumber;
+      const division = D / t;
+      outResultado.value = `El Valor de la velocidad es V:  ${division}`;
+    }
+</script>
+</body>
+</html>
